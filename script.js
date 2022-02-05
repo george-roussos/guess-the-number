@@ -4,11 +4,33 @@ function hiddenNum(min, max) {
   return Math.floor(Math.random() * (max + 1 - min) + min);
 }
 
-let hiddenNumber = hiddenNum(1, 20);
+document.querySelector('.easy').addEventListener('click', function () {
+  console.log('easy');
+  document.querySelector('.number').textContent = hiddenNum(1, 20);
+  document.querySelector('.between').textContent = '(Between 1 and 20)';
+});
+
+document.querySelector('.medium').addEventListener('click', function () {
+  document.querySelector('.number').textContent = hiddenNum(1, 30);
+  document.querySelector('.between').textContent = '(Between 1 and 30)';
+});
+
+document.querySelector('.hard').addEventListener('click', function () {
+  document.querySelector('.number').textContent = hiddenNum(1, 50);
+  document.querySelector('.between').textContent = '(Between 1 and 50)';
+});
+
+// If no level is selected, set level to 'Easy' and choose number.
+if (document.querySelector('.number').textContent == '?') {
+  document.querySelector('.number').textContent = hiddenNum(1, 20);
+}
+
 let score = 20;
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
+  let hiddenNumber = Number(document.querySelector('.number').textContent);
+  console.log(hiddenNumber);
   if (score > 0) {
     if (!guess) {
       document.querySelector('.message').textContent = 'Please make a guess';
