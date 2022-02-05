@@ -82,6 +82,24 @@ h1 {
   left: 2rem;
 }
 
+.easy {
+  position: absolute;
+  top: 2rem;
+  left: 25rem;
+}
+
+.medium {
+  position: absolute;
+  top: 2rem;
+  left: 40rem;
+}
+
+.hard {
+  position: absolute;
+  top: 2rem;
+  left: 59rem;
+}
+
 .guess {
   background: none;
   border: 4px solid #eee;
